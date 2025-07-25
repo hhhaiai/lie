@@ -1,0 +1,57 @@
+
+
+curl -X POST "https://chatai.aritek.app/stream" \
+  -H "Accept: text/event-stream" \
+  -H "Content-Type: application/json" \
+  -H "User-Agent: Dalvik/2.1.0 (Linux; U; Android 7.1.2; SM-G935F Build/N2G48H)" \
+  -H "Host: chatai.aritek.app" \
+  -H "Connection: Keep-Alive" \
+  -d '{
+    "machineId": "0343578260151264.464241743263788731",
+    "msg": [
+      {"role": "user", "content": "YOUR_MESSAGE_CONTENT"}
+    ],
+    "token": "eyJzdWIiOiIyMzQyZmczNHJ0MzR0MzQiLCJuYW1lIjoiSm9objM0NTM0NT",
+    "type": 0
+  }'
+
+
+curl -X POST "https://next.eqing.tech/api/openai/v1/chat/completions" \
+     -H "authority: next.eqing.tech" \
+     -H "accept: text/event-stream" \
+     -H "accept-language: en,fr-FR;q=0.9,fr;q=0.8,es-ES;q=0.7,es;q=0.6,en-US;q=0.5,am;q=0.4,de;q=0.3" \
+     -H "cache-control: no-cache" \
+     -H "content-type: application/json" \
+     -H "origin: https://next.eqing.tech" \
+     -H "plugins: 0" \
+     -H "pragma: no-cache" \
+     -H "referer: https://next.eqing.tech/" \
+     -H "sec-ch-ua: \"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\"" \
+     -H "sec-ch-ua-mobile: ?0" \
+     -H "sec-ch-ua-platform: \"macOS\"" \
+     -H "sec-fetch-dest: empty" \
+     -H "sec-fetch-mode: cors" \
+     -H "sec-fetch-site: same-origin" \
+     -H "user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" \
+     -H "usesearch: false" \
+     -H "x-requested-with: XMLHttpRequest" \
+     --data-raw '{
+       "messages": [
+         {
+           "role": "user",
+           "content": "Hello World"
+         }
+       ],
+       "model": "gpt-3.5-turbo",
+       "stream": true,
+       "temperature": 0.5,
+       "presence_penalty": 0,
+       "frequency_penalty": 0,
+       "top_p": 1
+     }' \
+     --no-buffer
+
+
+
+
+

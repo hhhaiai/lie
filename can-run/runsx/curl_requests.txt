@@ -1,0 +1,282 @@
+curl -X POST "https://playground.ai.cloudflare.com/api/inference" \
+     -H "Content-Type: application/json" \
+     -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36" \
+     -H "Accept: */*" \
+     -H "Referer: https://playground.ai.cloudflare.com/" \
+     -H "Origin: https://playground.ai.cloudflare.com" \
+     --data-raw '{
+       "messages": [
+         {
+           "role": "user",
+           "content": "Hello World"
+         }
+       ],
+       "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+       "stream": true,
+       "max_tokens": 2048
+     }' \
+     --no-buffer
+
+# Equing 示例请求
+## 支持模型 gpt-3.5-turbo
+```
+curl -X POST "https://next.eqing.tech/api/openai/v1/chat/completions" \
+     -H "authority: next.eqing.tech" \
+     -H "accept: text/event-stream" \
+     -H "accept-language: en,fr-FR;q=0.9,fr;q=0.8,es-ES;q=0.7,es;q=0.6,en-US;q=0.5,am;q=0.4,de;q=0.3" \
+     -H "cache-control: no-cache" \
+     -H "content-type: application/json" \
+     -H "origin: https://next.eqing.tech" \
+     -H "plugins: 0" \
+     -H "pragma: no-cache" \
+     -H "referer: https://next.eqing.tech/" \
+     -H "sec-ch-ua: \"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\"" \
+     -H "sec-ch-ua-mobile: ?0" \
+     -H "sec-ch-ua-platform: \"macOS\"" \
+     -H "sec-fetch-dest: empty" \
+     -H "sec-fetch-mode: cors" \
+     -H "sec-fetch-site: same-origin" \
+     -H "user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" \
+     -H "usesearch: false" \
+     -H "x-requested-with: XMLHttpRequest" \
+     --data-raw '{
+       "messages": [
+         {
+           "role": "user",
+           "content": "Hello World"
+         }
+       ],
+       "model": "gpt-3.5-turbo",
+       "stream": true,
+       "temperature": 0.5,
+       "presence_penalty": 0,
+       "frequency_penalty": 0,
+       "top_p": 1
+     }' \
+     --no-buffer
+
+
+# FastGpt 示例请求
+## 支持模型 gpt-3.5-turbo
+```
+curl -X POST "https://chat9.fastgpt.me/api/openai/v1/chat/completions" \
+     -H "authority: chat9.fastgpt.me" \
+     -H "accept: text/event-stream" \
+     -H "accept-language: en,fr-FR;q=0.9,fr;q=0.8,es-ES;q=0.7,es;q=0.6,en-US;q=0.5,am;q=0.4,de;q=0.3" \
+     -H "cache-control: no-cache" \
+     -H "content-type: application/json" \
+     -H "origin: https://chat9.fastgpt.me" \
+     -H "plugins: 0" \
+     -H "pragma: no-cache" \
+     -H "referer: https://chat9.fastgpt.me/" \
+     -H "sec-ch-ua: \"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\"" \
+     -H "sec-ch-ua-mobile: ?0" \
+     -H "sec-ch-ua-platform: \"macOS\"" \
+     -H "sec-fetch-dest: empty" \
+     -H "sec-fetch-mode: cors" \
+     -H "sec-fetch-site: same-origin" \
+     -H "user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" \
+     -H "usesearch: false" \
+     -H "x-requested-with: XMLHttpRequest" \
+     --data-raw '{
+       "messages": [
+         {
+           "role": "user",
+           "content": "Hello World"
+         }
+       ],
+       "model": "gpt-3.5-turbo",
+       "stream": true,
+       "temperature": 0.5,
+       "presence_penalty": 0,
+       "frequency_penalty": 0,
+       "top_p": 1
+     }'
+```
+
+# Free2GPT 示例请求
+## 默认模型 mistral-7b
+```
+curl -X POST "https://chat10.free2gpt.xyz/api/generate" \
+     -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36" \
+     -H "Accept: */*" \
+     -H "Accept-Language: en-US,en;q=0.9" \
+     -H "Accept-Encoding: gzip, deflate, br" \
+     -H "Content-Type: text/plain;charset=UTF-8" \
+     -H "Referer: https://chat10.free2gpt.xyz/" \
+     -H "Origin: https://chat10.free2gpt.xyz" \
+     -H "Sec-Fetch-Dest: empty" \
+     -H "Sec-Fetch-Mode: cors" \
+     -H "Sec-Fetch-Site: same-origin" \
+     -H "Sec-Ch-Ua: \"Chromium\";v=\"127\", \"Not)A;Brand\";v=\"99\"" \
+     -H "Sec-Ch-Ua-Mobile: ?0" \
+     -H "Sec-Ch-Ua-Platform: \"Linux\"" \
+     -H "Cache-Control: no-cache" \
+     -H "Pragma: no-cache" \
+     -H "Priority: u=1, i" \
+     --data-raw '{
+       "messages": [
+         {
+           "role": "user",
+           "content": "Hello World"
+         }
+       ],
+       "time": $(date +%s%3N),
+       "pass": null,
+       "sign": "$(python3 -c 'import hashlib;print(hashlib.sha256(\"$(date +%s%3N):Hello World:\".encode()).hexdigest())')"
+     }'
+```
+
+# FreeGpt 示例请求
+## 默认模型 gemini-1.5-pro
+```
+curl -X POST "$(shuf -n 1 -e 'https://s.aifree.site' 'https://v.aifree.site/' 'https://al.aifree.site/' 'https://u4.aifree.site/')/api/generate" \
+     -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" \
+     -H "Accept: */*" \
+     -H "Accept-Language: en-US,en;q=0.9" \
+     -H "Accept-Encoding: gzip, deflate, br" \
+     -H "Content-Type: application/json" \
+     -H "Referer: $(shuf -n 1 -e 'https://s.aifree.site' 'https://v.aifree.site/' 'https://al.aifree.site/' 'https://u4.aifree.site/')/" \
+     -H "Origin: $(shuf -n 1 -e 'https://s.aifree.site' 'https://v.aifree.site/' 'https://al.aifree.site/' 'https://u4.aifree.site/')" \
+     -H "Sec-Fetch-Dest: empty" \
+     -H "Sec-Fetch-Mode: cors" \
+     -H "Sec-Fetch-Site: same-origin" \
+     -H "Cache-Control: no-cache" \
+     -H "Pragma: no-cache" \
+     -H "Priority: u=1, i" \
+     --data-raw '{
+       "messages": [
+         {
+           "role": "user",
+           "content": "Hello World"
+         }
+       ],
+       "time": $(date +%s),
+       "pass": null,
+       "sign": "$(python3 -c 'import hashlib;print(hashlib.sha256(\"$(date +%s):Hello World:\".encode()).hexdigest())')"
+     }'
+```
+
+# GizAI 示例请求
+## 默认模型 chat-gemini-flash
+```
+curl -X POST "https://app.giz.ai/api/data/users/inferenceServer.infer" \
+     -H "Accept: application/json, text/plain, */*" \
+     -H "Accept-Language: en-US,en;q=0.9" \
+     -H "Cache-Control: no-cache" \
+     -H "Connection: keep-alive" \
+     -H "Content-Type: application/json" \
+     -H "DNT: 1" \
+     -H "Origin: https://app.giz.ai" \
+     -H "Pragma: no-cache" \
+     -H "Sec-Fetch-Dest: empty" \
+     -H "Sec-Fetch-Mode: cors" \
+     -H "Sec-Fetch-Site: same-origin" \
+     -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" \
+     -H "sec-ch-ua: \"Not?A_Brand\";v=\"99\", \"Chromium\";v=\"130\"" \
+     -H "sec-ch-ua-mobile: ?0" \
+     -H "sec-ch-ua-platform: \"Linux\"" \
+     --data-raw '{
+       "model": "chat-gemini-flash",
+       "input": {
+         "messages": [
+           {
+             "type": "human",
+             "content": "Hello World"
+           }
+         ],
+         "mode": "plan"
+       },
+       "noStream": true
+     }'
+```
+
+# ImageLabs 示例请求
+## 默认图像模型 general
+```
+curl -X POST "https://editor.imagelabs.net/txt2img" \
+     -H "accept: */*" \
+     -H "accept-language: en-US,en;q=0.9" \
+     -H "cache-control: no-cache" \
+     -H "content-type: application/json" \
+     -H "origin: https://editor.imagelabs.net" \
+     -H "referer: https://editor.imagelabs.net/" \
+     -H "x-requested-with: XMLHttpRequest" \
+     -H "user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" \
+     --data-raw '{
+       "prompt": "Hello World",
+       "seed": "$(date +%s)",
+       "subseed": "$(date +%s%3N)",
+       "attention": 0,
+       "width": 1152,
+       "height": 896,
+       "tiling": false,
+       "negative_prompt": "",
+       "reference_image": "",
+       "reference_image_type": null,
+       "reference_strength": 30
+     }'
+```
+
+# PerplexityLabs 示例请求
+## 支持模型 llama-3.1-70b-instruct, llama-3.3-70b-instruct 等
+```
+curl -X POST "https://www.perplexity.ai/socket.io/" \
+     -H "User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:121.0) Gecko/20100101 Firefox/121.0" \
+     -H "Accept: */*" \
+     -H "Accept-Language: de,en-US;q=0.7,en;q=0.3" \
+     -H "Accept-Encoding: gzip, deflate, br" \
+     -H "Origin: https://labs.perplexity.ai" \
+     -H "Connection: keep-alive" \
+     -H "Referer: https://labs.perplexity.ai/" \
+     -H "Sec-Fetch-Dest: empty" \
+     -H "Sec-Fetch-Mode: cors" \
+     -H "Sec-Fetch-Site: same-site" \
+     -H "TE: trailers" \
+     --data-raw '40{"jwt":"anonymous-ask-user"}'
+```
+
+
+# RubiksAI 示例请求
+## 支持模型 gpt-4o-mini, claude-3.5-sonnet, gemini-1.5-pro 等
+```
+curl -X POST "https://rubiks.ai/search/api/" \
+     -H "Accept: text/event-stream" \
+     -H "Accept-Language: en-US,en;q=0.9" \
+     -H "Cache-Control: no-cache" \
+     -H "Connection: keep-alive" \
+     -H "Pragma: no-cache" \
+     -H "Referer: https://rubiks.ai/search/?q=Hello+World&model=gpt-4o-mini&mid=$(python3 -c 'import random,string;print("".join(random.choices(string.ascii_lowercase + string.digits,k=6)))-$("".join(random.choices(string.ascii_lowercase + string.digits,k=4)))-$("".join(random.choices(string.ascii_lowercase + string.digits,k=4)))-$("".join(random.choices(string.ascii_lowercase + string.digits,k=4)))-$("".join(random.choices(string.ascii_lowercase + string.digits,k=12)))')" \
+     -H "Sec-Fetch-Dest: empty" \
+     -H "Sec-Fetch-Mode: cors" \
+     -H "Sec-Fetch-Site: same-origin" \
+     -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36" \
+     -H "sec-ch-ua: \"Chromium\";v=\"129\", \"Not=A?Brand\";v=\"8\"" \
+     -H "sec-ch-ua-mobile: ?0" \
+     -H "sec-ch-ua-platform: \"Linux\"" \
+     --data-raw '{
+       "messages": [
+         {
+           "role": "user",
+           "content": "Hello World"
+         }
+       ],
+       "model": "gpt-4o-mini",
+       "search": false,
+       "stream": true,
+       "temperature": 0.6
+     }'
+```
+
+# You 示例请求
+## 支持模型 gpt-4o-mini, claude-3.5-sonnet, gemini-1.5-pro 等
+```
+curl -X GET "https://you.com/api/streamingSearch?domain=youchat&selectedChatMode=default&conversationTurnId=$(uuidgen)&chatId=$(uuidgen)" \
+     -H "Accept: text/event-stream" \
+     -H "Referer: https://you.com/search?fromSearchBar=true&tbm=youchat" \
+     --data-raw '{
+       "q": "Hello World",
+       "userFiles": ""
+     }'
+```
+

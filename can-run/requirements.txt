@@ -1,0 +1,4 @@
+requests
+selenium
+curl_cffi
+asgiref 
